@@ -5,11 +5,12 @@ const uuid = require('uuid');
 const fs = require('fs');
 const exphbs = require('express-handlebars'); //Para usar plantillas
 const path = require('path');               //Para manejar directorios, basicamente unirlos 
-//const flash = require('connect-flash');  //Para mostar mensajes
-//const passport = require('passport');
-//const {database} =require('./keys');
-const {format } = require('timeago.js');
-const {unlink} = require('fs-extra');
+const flash = require('connect-flash');  //Para mostar mensajes
+const passport = require('passport');
+const session = require('express-session');
+const  MySQLstore= require('express-mysql-session');
+const {database} =require('./keys'); //para las sesiones
+//const {unlink} = require('fs-extra');
 
 //Initialization
 const app = express();
@@ -29,18 +30,18 @@ app.set('view engine','.hbs'); //PAra utilizar el app.engine
 
 
 //Middleware
-/* app.use(session({
+  app.use(session({
     secret: 'mysesion',
     resave: false,
     saveUninitialized:false,
     store: new MySQLstore(database)
-})) */
-//app.use(flash());       // Para poder usar el middleware de enviar mensajes popups
+}));  
+app.use(flash());       // Para poder usar el middleware de enviar mensajes popups
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false})); //aceptar los datos desde los formularios sin aceptar imagenes ni nada raro
-//app.use(express.json()); //Para enviar y recibir jsons.
-//app.use(passport.initialize()); //iniciar passport
-//app.use(passport.session());    //para que sepa donde guardar y como manejar los datos
+app.use(express.json()); //Para enviar y recibir jsons.
+app.use(passport.initialize()); //iniciar passport
+app.use(passport.session());    //para que sepa donde guardar y como manejar los datos
 
 const storage=multer.diskStorage({
     filename: (req,file,cb,filename)=>{
@@ -54,10 +55,9 @@ app.use(multer({storage}).single('image'));
 
 //Variables globales
 app.use((req,res,next) =>{
-   // app.locals.signupMessage = req.flash('signupMessage');
-   // app.locals.success = req.flash('success');
-   // app.locals.message = req.flash('message');
-   
+    app.locals.signupMessage = req.flash('signupMessage');
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
     next();
 });
 

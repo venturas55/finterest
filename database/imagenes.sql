@@ -53,3 +53,20 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `usuarios` (
+  `usuario` varchar(50) NOT NULL,
+  `contrasena` varchar(250) NOT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `full_name` varchar(150) DEFAULT NULL,
+  `privilegio` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='tabla de usuarios';
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuario`, `contrasena`, `email`, `full_name`, `privilegio`) VALUES
+('user1', '$2a$10$FnvZM/pll.MmM1ib4KT/B.4bRm7EhkCmzmma0TlJfI/9AyNjlivEO', 'correo@prueba.es', 'Nombre usuario1', 'user');
+
+--
