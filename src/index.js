@@ -5,9 +5,11 @@ const uuid = require('uuid');
 const fs = require('fs');
 const exphbs = require('express-handlebars'); //Para usar plantillas
 const path = require('path');               //Para manejar directorios, basicamente unirlos 
-const flash = require('connect-flash');  //Para mostar mensajes
-const passport = require('passport');
-const {database} =require('./keys');
+//const flash = require('connect-flash');  //Para mostar mensajes
+//const passport = require('passport');
+//const {database} =require('./keys');
+const {format } = require('timeago.js');
+const {unlink} = require('fs-extra');
 
 //Initialization
 const app = express();
@@ -55,9 +57,10 @@ app.use((req,res,next) =>{
    // app.locals.signupMessage = req.flash('signupMessage');
    // app.locals.success = req.flash('success');
    // app.locals.message = req.flash('message');
-   // app.locals.user = req.user;
+   
     next();
 });
+
 
 //Routes
 app.use(require('./routes')); //busca automaticamente el archivo index.js
