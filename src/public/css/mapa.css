@@ -1,0 +1,26 @@
+body {
+  color: antiquewhite;
+  background: rgb(49, 62, 49);
+}
+
+button {
+  width: auto;
+  border-radius: 10px;
+  background: goldenrod;
+}
+
+#map {
+  border: 2px solid black;
+  height: 100%;
+  width: 100%;
+}
+
+input{
+  display: none;
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

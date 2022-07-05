@@ -1,0 +1,42 @@
+body{
+    background: #b3b8b9;
+    font-family: sans-serif;
+}
+
+.container-fluid{
+  width: 95%;
+  padding: 2em;
+  text-align: justify;
+}
+
+
+
+
+.footer {
+    margin:0px;
+    padding: 0px;
+    height: 40px;
+    color: white; 
+  }
+  
+  .footer div{
+    margin: 0px 10px;
+  }
+  
+  .footer p{
+    margin:0px;
+  }
+  
+  .footer a {
+    margin:5px;
+    height: 40px;
+    color: white ; 
+  }
+  .copyleft {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+  
+@media (min-width: 992px){
+
+}

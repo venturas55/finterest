@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   {{#if user}}
+  <img  src="/img/profiles/{{user.usuario}}.jpg" class="avatar avatar-s" alt="avatar" >
+  {{/if}}
+  <div class="container">
+    <a class="navbar-brand" href="/">BBDD SAN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            ListadoBalizamiento
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/balizas/list/">Listado global</a>
+            <a class="dropdown-item" href="/balizas/list/Valen">Listado Valencia</a>
+            <a class="dropdown-item" href="/balizas/list/Sag">Listado Sagunto</a>
+            <a class="dropdown-item" href="/balizas/list/Gand">Listado Gandia</a>
+            <a class="dropdown-item" href="/balizas/list">Listado Externas</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/balizas/add ">Baliza Nueva</a>
+          </div>
+        </li>
+        {{#if user}}
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Panel Adm
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/profile">Profile</a>
+            <a class="dropdown-item" href="/balizas/add ">Baliza Nueva</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/logout ">Logout</a>
+          </div>
+        </li>
+
+        {{/if}}
+        <li class="nav-item">
+          <a class="nav-link" href="/plan" tabindex="-1" aria-disabled="true">Plan Inspeccion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/calculos" tabindex="-1" aria-disabled="true">Calculos</a>
+        </li>
+
+          {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/logout " tabindex="-1" aria-disabled="true">Logout</a>
+        </li>
+        
+        {{else}}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/signin" tabindex="-1" aria-disabled="true">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup" tabindex="-1" aria-disabled="true">Sign up</a>
+        </li>
+           {{/if}}
+      </ul>
+      <form id="formularioBusqueda" class="form-inline my-2 my-lg-0">
+        <input id="inputBuscar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <select name="opcionBuscar" id="opcionBuscar">
+          <option value="nif">nif</option>
+          <option value="puerto">puerto</option>
+          <option value="localizacion" selected>localizacion</option>
+          <option value="tipo">tipo</option>
+          <option value="apariencia">apariencia</option>
+        </select>
+        <button id="botonBuscar" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
